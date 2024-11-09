@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/my_style.css' %}">
+    <title>Latihan django</title>
+</head>
+<body>
+    
+    <h1>Template django</h1>
+    {{ insert_me }}
+
+    <h1>ini adalah gambar virtual bg</h1>
+    <img src="{% static 'images/msib.png' %}" alt="logo vb" width="50%">
+
+
+    <h2>This access records</h2>
+    <div class="django2">
+        {% if access_records %}
+        <table>
+            <thead>
+                <th>site name</th>
+                <th>date</th>
+            </thead>
+            {% for acc in access_records %}
+                <tr>
+                    <td>{{ acc.name }}</td>
+                    <td>{{ acc.date }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No access</p>
+        {% endif %}
+    </div>
+</body>
+</html>
